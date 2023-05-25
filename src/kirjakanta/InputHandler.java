@@ -1,9 +1,8 @@
 package kirjakanta;
 
 import java.io.Console;
-import java.util.Arrays;
-
-public class InputHandler {
+//kirjakanta : kissa
+public class InputHandler implements PasswordHandler {
     private Console console;
 
     public InputHandler() {
@@ -18,13 +17,9 @@ public class InputHandler {
         return console.readLine();
     }
 
-    public char[] getPassword() {
+    public String getPassword() {
         char[] password = console.readPassword("Enter password: ");
-        return password;
-    }
-
-    public void clearPassword(char[] password) {
-        Arrays.fill(password, '\0');
+        return new String(password);
     }
 
 }
