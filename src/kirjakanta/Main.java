@@ -12,11 +12,21 @@ public class Main {
         
         while(!command.equals("quit") && !command.equals("\\q")) {
             switch(command) {
-                case "1":
-                    dbManager.isConnected();
+                case "0":
+                	if (dbManager.isConnected()) {
+                		System.out.println("Database online!");
+                	}
+                	else {
+                		System.out.println("Not connected to database");
+                	}
                     break;
+                    
+                case "1":
+                	dbManager.selectBook(inputHandler.getUserInput("Book title: "));
+                	break;
+                	
                 case "2":
-                    dbManager.selectBooks();
+                    dbManager.selectAllBooks();
                     break;
                 default:
                     System.out.println("Command unknown.");

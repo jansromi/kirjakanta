@@ -22,4 +22,9 @@ public class InputHandler implements PasswordHandler {
         return new String(password);
     }
 
+	public String getUserInput(String msg) {
+		System.out.println(msg);
+		return console.readLine();
+	}
+
 }
