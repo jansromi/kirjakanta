@@ -9,12 +9,19 @@ public class Main {
         
 
         String command = inputHandler.getNextCommand();
-        while(!command.equals("quit")) {
-        	if (command.equals("1")) {
-        		System.out.println("hello");
-        		dbManager.isConnected();
-        	}
-            dbManager.executeQuery(command);
+        
+        while(!command.equals("quit") && !command.equals("\\q")) {
+            switch(command) {
+                case "1":
+                    dbManager.isConnected();
+                    break;
+                case "2":
+                    dbManager.selectBooks();
+                    break;
+                default:
+                    System.out.println("Command unknown.");
+                    break;
+            }
             command = inputHandler.getNextCommand();
         }
 
